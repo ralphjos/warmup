@@ -1,0 +1,43 @@
+<html>
+<head>
+</head>
+<body>
+	<center>
+	<div ng-hide="loggedIn">
+		<div id="welcome">
+			<h1>Welcome to my warmup app!</h1>
+		</div>
+		<div ui-view="error-message">
+		</div>
+		<div id="login-screen">
+			<form>
+				<label>Username: </label>
+				<input ng-model="credentials.user" type="text" placeholder="ID">
+				<br>
+				<label>Password: </label>
+				<input ng-model="credentials.password" type="password" placeholder="*********">
+				<p>
+				<input ng-click="login()" type="submit" value="Login">
+				<input ng-click="addUser()" type="submit" value="Add User">
+			</form>
+		</div>
+
+		<div ng-hide="err" color="red">
+			<h3>{{message}}<h3>
+		</div>
+	</div>
+
+	<div ng-show="loggedIn">
+		<div id="message">
+			<h2>Welcome, <span>{{credentials.user}}</span>!</h2>
+			<h2>You have logged in <span>{{response.count}}</span> times.</h2>
+		</div>
+		<div id="logout">
+			<form>
+				<input ng-click="logout()" type="submit" value="Logout">
+			</form>
+		</div>
+	</div>
+	<center>
+</body>
+<html>
